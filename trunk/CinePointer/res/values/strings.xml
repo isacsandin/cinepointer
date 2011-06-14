@@ -8,6 +8,7 @@
     <string name="labelCidade">Cidade:</string>
     <string name="labelGenero">Gênero:</string>
     <string name="labelFaixaHoraria">Faixa Horária:</string>
+    <string name="main_no_items">No orders to display</string>
     <string-array name="arrayCidades">
         <item>Cidade1</item>
         <item>Cidade2</item>
