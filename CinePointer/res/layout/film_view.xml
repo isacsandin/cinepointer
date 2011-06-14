@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="wrap_content"
   android:padding="5dp"
-  android:background="#cccccc"
-  >
-  <ImageView
-      android:id="@+id/imageFilme"
-      android:layout_width="60dp"
-      android:layout_height="42dp"
-      android:background="#ffffff"
-      android:scaleType="centerCrop"
-  />
-  <TextView
-      android:id="@+id/textFilme"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_toRightOf="@+id/imageFilme"
-      android:layout_alignTop="@+id/imageFilme"
-      android:text="NOME DO FILME"
-      android:textSize="20sp"    
-      android:textColor="#333333"
-      android:paddingLeft="5dp"  
-  />
-</RelativeLayout>
+  android:background="#cccccc" android:layout_height="100dip">
+  <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:layout_width="fill_parent">
+      <ImageView android:id="@+id/imageFilme" android:scaleType="centerCrop" android:background="#ffffff" android:layout_width="60dp" android:layout_height="100dp"></ImageView>
+      <TextView android:id="@+id/textFilme" android:textColor="#333333" android:layout_width="fill_parent" android:paddingLeft="5dp" android:textSize="20sp" android:text="NOME DO FILME" android:layout_height="fill_parent"></TextView>
+  </LinearLayout>
+</LinearLayout>

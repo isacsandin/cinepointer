@@ -17,4 +17,21 @@
         <item>Cidade5</item>
     </string-array>
         <string name="labelResultadosPesquisa">Resultados da Pesquisa:</string>
+        <string name="detalhesNomeFilme">\nNome: Piratas Do Caribe</string>
+        <string name="detalhesDiretores">\nDireção: Gregor Verbinski</string>
+        <string name="detalhesDuracao">\nDuração: 168min</string>
+        <string name="detalhesGenero">\nGênero: aventura</string>
+        <string name="detalhesSinopse">\nSinopse: O lorde Cuttler Beckett (Tom Hollander), 
+        da Companhia das Índias Orientais, detém o comando do navio-fantasma 
+        Flying Dutchman. O navio, agora sob o comando do almirante James Norrington 
+        (Jack Davenport), tem por missão vagar pelos sete mares em busca de piratas e 
+        matá-los sem piedade. Na intenção de deter Beckett... </string>
+        <string name="detalhesHorarios">\nLocais:\n
+        Cine Glória1: 10:00,12:00,15:40,19:00\n
+        Cine Glória Shopping: 10:00,12:00,15:40,19:00\n
+        </string>
+        <string name="botaoIrMaps">Ver Localização</string>
+        <string name="botaoCriarCompromisso">Agendar\nCompromisso</string>
+        <string name="botaoArmazenarBusca">Armazenar\nBusca</string>
+        <string name="detalhesStringAutores">\nAtores: Johnny Depp, Orlando Bloom, Geoffrey Rush, Jonathan Pryce.</string>
 </resources>

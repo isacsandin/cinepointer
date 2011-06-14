@@ -5,27 +5,31 @@ import java.util.ArrayList;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class SoftwarePassionView extends ListActivity{
+public class ListFilmView extends ListActivity implements OnItemClickListener{
    
     private ProgressDialog m_ProgressDialog = null;
-    private ArrayList<Order> m_orders = null;
-    private OrderAdapter m_adapter;
+    private ArrayList<Filme> m_orders = null;
+    private FilmAdapter m_adapter;
     private Runnable viewOrders;
    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        m_orders = new ArrayList<Order>();
-        this.m_adapter = new OrderAdapter(this, R.layout.row, m_orders);
+        this.getListView().setOnItemClickListener(this);
+        m_orders = new ArrayList<Filme>();
+        this.m_adapter = new FilmAdapter(this, R.layout.row, m_orders);
         setListAdapter(this.m_adapter);
        
         viewOrders = new Runnable(){
@@ -35,7 +39,7 @@ public class SoftwarePassionView extends ListActivity{
         };
         Thread thread =  new Thread(null, viewOrders, "MagentoBackground");
         thread.start();
-        m_ProgressDialog = ProgressDialog.show(SoftwarePassionView.this,    
+        m_ProgressDialog = ProgressDialog.show(ListFilmView.this,    
               "Please wait...", "Retrieving data ...", true);
     }
     private Runnable returnRes = new Runnable() {
@@ -51,39 +55,39 @@ public class SoftwarePassionView extends ListActivity{
     };
     private void getOrders(){
           try{
-              m_orders = new ArrayList<Order>();
-              Order o1 = new Order();
-              o1.setOrderName("SF services");
-              o1.setOrderStatus("Pending");
-              Order o2 = new Order();
-              o2.setOrderName("SF Advertisement");
-              o2.setOrderStatus("Completed");
-              Order o3 = new Order();
-              o3.setOrderName("SF Advertisement");
-              o3.setOrderStatus("Completed");
-              Order o4 = new Order();
-              o4.setOrderName("SF Advertisement");
-              o4.setOrderStatus("Completed");
-              Order o5 = new Order();
-              o5.setOrderName("SF Advertisement");
-              o5.setOrderStatus("Completed");              
-              m_orders.add(o1);
-              m_orders.add(o2);
-              m_orders.add(o3);
-              m_orders.add(o4);
-              m_orders.add(o5);
-              Thread.sleep(5000);
+              m_orders = new ArrayList<Filme>();
+              Filme f1 = new Filme();
+              f1.setNome("Piratas do Caribe");
+              f1.setGenero("Aventura");
+              Filme f2 = new Filme();
+              f2.setNome("Piratas do Caribe");
+              f2.setGenero("Aventura");
+              Filme f3 = new Filme();
+              f3.setNome("Piratas do Caribe");
+              f3.setGenero("Aventura");
+              Filme f4 = new Filme();
+              f4.setNome("Piratas do Caribe");
+              f4.setGenero("Aventura");
+              Filme f5 = new Filme();
+              f5.setNome("Piratas do Caribe");
+              f5.setGenero("Aventura");
+              m_orders.add(f1);
+              m_orders.add(f2);
+              m_orders.add(f3);
+              m_orders.add(f4);
+              m_orders.add(f5);
+              Thread.sleep(2000);
               Log.i("ARRAY", ""+ m_orders.size());
             } catch (Exception e) {
               Log.e("BACKGROUND_PROC", e.getMessage());
             }
             runOnUiThread(returnRes);
         }
-    private class OrderAdapter extends ArrayAdapter<Order> {
+    private class FilmAdapter extends ArrayAdapter<Filme> {
 
-        private ArrayList<Order> items;
+        private ArrayList<Filme> items;
 
-        public OrderAdapter(Context context, int textViewResourceId, ArrayList<Order> items) {
+        public FilmAdapter(Context context, int textViewResourceId, ArrayList<Filme> items) {
                 super(context, textViewResourceId, items);
                 this.items = items;
         }
@@ -94,18 +98,22 @@ public class SoftwarePassionView extends ListActivity{
                     LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     v = vi.inflate(R.layout.row, null);
                 }
-                Order o = items.get(position);
-                if (o != null) {
+                Filme f = items.get(position);
+                if (f != null) {
                         TextView tt = (TextView) v.findViewById(R.id.toptext);
                         TextView bt = (TextView) v.findViewById(R.id.bottomtext);
                         if (tt != null) {
-                              tt.setText("Name: "+o.getOrderName());                            
+                              tt.setText("Nome: "+f.getNome());                            
                               }
                         if(bt != null){
-                              bt.setText("Status: "+ o.getOrderStatus());
+                              bt.setText("Gênero: "+ f.getGenero());
                         }
                 }
                 return v;
         }
 }
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		Intent i = new Intent(this,DetalhesActivity.class);
+		startActivity(i);
+	}
 }
