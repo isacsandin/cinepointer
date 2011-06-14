@@ -62,4 +62,6 @@ public class CinePointerActivity extends Activity {
         android.R.layout.simple_spinner_item, array_spinner);
         s.setAdapter(adapter);
 	}
+	
+	
 }
