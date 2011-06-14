@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -52,6 +53,15 @@ public class CinePointerActivity extends Activity {
         s = (Spinner) findViewById(R.id.spinner3);
         
         setSpinnerOptions(array_spinner,s);
+        
+        Button b = (Button) findViewById(R.id.botaoPesquisar);
+        
+        b.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent i = new Intent(CinePointerActivity.this,SoftwarePassionView.class);
+				startActivity(i);
+			}
+		});
        
 
  
