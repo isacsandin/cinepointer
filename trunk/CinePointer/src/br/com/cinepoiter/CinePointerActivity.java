@@ -57,9 +57,7 @@ public class CinePointerActivity extends Activity {
                 
         b.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				imprimirMensagem("teste","estou aqui...");
 				Intent i = new Intent(CinePointerActivity.this,SoftwarePassionView.class);
-				imprimirMensagem("teste",i.toURI());
 				startActivity(i);
 			}
 		});
