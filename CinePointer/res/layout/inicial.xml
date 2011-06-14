@@ -14,8 +14,8 @@
     <TextView android:id="@+id/textView4" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_weight="1" android:text="@string/labelFaixaHoraria"></TextView>
     <Spinner android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/spinner3" android:layout_weight="0.5"></Spinner>
     <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="right" android:layout_width="wrap_content" android:layout_weight="2">
-        <Button android:layout_height="wrap_content" android:id="@+id/botaoCancelar" android:text="@string/labelBotaoPesquisar" android:layout_width="wrap_content" android:layout_gravity="clip_vertical"></Button>
-        <Button android:layout_height="wrap_content" android:id="@+id/botaoPesquisar" android:text="@string/labelBotaoCancelar" android:layout_width="wrap_content" android:layout_gravity="right"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="clip_vertical" android:id="@+id/botaoCancelar" android:text="@string/labelBotaoCancelar"></Button>
+        <Button android:layout_height="wrap_content" android:id="@+id/botaoPesquisar" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/labelBotaoPesquisar"></Button>
     </LinearLayout>
     
 </LinearLayout>
