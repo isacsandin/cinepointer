@@ -57,7 +57,7 @@ public class CinePointerActivity extends Activity {
                 
         b.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent i = new Intent(CinePointerActivity.this,SoftwarePassionView.class);
+				Intent i = new Intent(CinePointerActivity.this,ListFilmView.class);
 				startActivity(i);
 			}
 		});
