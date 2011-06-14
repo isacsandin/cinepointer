@@ -58,8 +58,20 @@ public class SoftwarePassionView extends ListActivity{
               Order o2 = new Order();
               o2.setOrderName("SF Advertisement");
               o2.setOrderStatus("Completed");
+              Order o3 = new Order();
+              o3.setOrderName("SF Advertisement");
+              o3.setOrderStatus("Completed");
+              Order o4 = new Order();
+              o4.setOrderName("SF Advertisement");
+              o4.setOrderStatus("Completed");
+              Order o5 = new Order();
+              o5.setOrderName("SF Advertisement");
+              o5.setOrderStatus("Completed");              
               m_orders.add(o1);
               m_orders.add(o2);
+              m_orders.add(o3);
+              m_orders.add(o4);
+              m_orders.add(o5);
               Thread.sleep(5000);
               Log.i("ARRAY", ""+ m_orders.size());
             } catch (Exception e) {
@@ -87,7 +99,8 @@ public class SoftwarePassionView extends ListActivity{
                         TextView tt = (TextView) v.findViewById(R.id.toptext);
                         TextView bt = (TextView) v.findViewById(R.id.bottomtext);
                         if (tt != null) {
-                              tt.setText("Name: "+o.getOrderName());                            }
+                              tt.setText("Name: "+o.getOrderName());                            
+                              }
                         if(bt != null){
                               bt.setText("Status: "+ o.getOrderStatus());
                         }
