@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, CinePointerActivity!</string>
+    <string name="app_name">CinePointer</string>
+    <string name="labelPesquisa">Nome do filme(ou parte dele):</string>
+    <string name="labelBotaoPesquisar">Pesquisar</string>
+    <string name="labelBotaoCancelar">Cancelar</string>
+    <string name="labelCidade">Cidade:</string>
+    <string name="labelGenero">Gênero:</string>
+    <string name="labelFaixaHoraria">Faixa Horária:</string>
+    <string-array name="arrayCidades">
+        <item>Cidade1</item>
+        <item>Cidade2</item>
+        <item>Cidade3</item>
+        <item>Cidade4</item>
+        <item>Cidade5</item>
+    </string-array>
+        <string name="labelResultadosPesquisa">Resultados da Pesquisa:</string>
+</resources>
