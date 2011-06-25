@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, CinePointerActivity!</string>
-    <string name="app_name">CinePointer</string>
-    <string name="labelPesquisa">Nome do filme(ou parte dele):</string>
-    <string name="labelBotaoPesquisar">Pesquisar</string>
-    <string name="labelBotaoCancelar">Cancelar</string>
-    <string name="labelCidade">Cidade:</string>
-    <string name="labelGenero">Gênero:</string>
-    <string name="labelFaixaHoraria">Faixa Horária:</string>
-    <string name="main_no_items">No orders to display</string>
-    <string-array name="arrayCidades">
-        <item>Cidade1</item>
-        <item>Cidade2</item>
-        <item>Cidade3</item>
-        <item>Cidade4</item>
-        <item>Cidade5</item>
-    </string-array>
-        <string name="labelResultadosPesquisa">Resultados da Pesquisa:</string>
-        <string name="detalhesNomeFilme">\nNome: Piratas Do Caribe</string>
-        <string name="detalhesDiretores">\nDireção: Gregor Verbinski</string>
-        <string name="detalhesDuracao">\nDuração: 168min</string>
-        <string name="detalhesGenero">\nGênero: aventura</string>
-        <string name="detalhesSinopse">\nSinopse: O lorde Cuttler Beckett (Tom Hollander), 
-        da Companhia das Índias Orientais, detém o comando do navio-fantasma 
-        Flying Dutchman. O navio, agora sob o comando do almirante James Norrington 
-        (Jack Davenport), tem por missão vagar pelos sete mares em busca de piratas e 
-        matá-los sem piedade. Na intenção de deter Beckett... </string>
-        <string name="detalhesHorarios">\nLocais:\n
-        Cine Glória1: 10:00,12:00,15:40,19:00\n
-        Cine Glória Shopping: 10:00,12:00,15:40,19:00\n
+	<string name="hello">Hello World, CinePointerActivity!</string>
+	<string name="app_name">CinePointer</string>
+	<string name="labelPesquisa">Nome do filme(ou parte dele):</string>
+	<string name="labelBotaoPesquisar">Pesquisar</string>
+	<string name="labelBotaoCancelar">Cancelar</string>
+	<string name="labelCidade">Cidade:</string>
+	<string name="labelGenero">Gênero:</string>
+	<string name="labelFaixaHoraria">Faixa Horária:</string>
+	<string name="main_no_items">No orders to display</string>
+	<string-array name="arrayCidades">
+		<item>Cidade1</item>
+		<item>Cidade2</item>
+		<item>Cidade3</item>
+		<item>Cidade4</item>
+		<item>Cidade5</item>
+	</string-array>
+	<string name="labelResultadosPesquisa">Resultados da Pesquisa:</string>
+	<string name="detalhesNomeFilme">\nNome: Piratas Do Caribe</string>
+	<string name="detalhesDiretores">\nDireção: Gregor Verbinski</string>
+	<string name="detalhesDuracao">\nDuração: 168min</string>
+	<string name="detalhesGenero">\nGênero: aventura</string>
+	<string name="detalhesSinopse">\nSinopse: O capitão Jack Sparrow (Johnny Depp) vai até Londres para resgatar Gibbs (Kevin McNally), integrante de sua tripulação no Pérola Negra. Lá ele descobre que alguém está usando seu nome para conseguir marujos em uma viagem rumo à Fonte da Juventude. Sparrow investiga e logo percebe que Angelica (Penélope Cruz), um antigo caso que balançou seu coração, é a responsável 
+	pela farsa. Ela é filha do lendário pirata Barba Negra (Ian McShane), 
+	que está com os dias contados. Desta forma, Angelica quer encontrar a
+	 Fonte da Juventude para que seu pai tenha mais alguns anos de vida.
+	 No encalço deles está o capitão Barbossa (Geoffrey Rush),
+	 que agora trabalha para o império britânico.</string>
+	<string name="detalhesHorarios">\nLocais:\n
+		Cine Glória1: 10:00,12:00,15:40,19:00\n
+		Cine Glória Shopping: 10:00,12:00,15:40,19:00\n
         </string>
-        <string name="botaoIrMaps">Ver Localização</string>
-        <string name="botaoCriarCompromisso">Agendar\nCompromisso</string>
-        <string name="botaoArmazenarBusca">Armazenar\nBusca</string>
-        <string name="detalhesStringAutores">\nAtores: Johnny Depp, Orlando Bloom, Geoffrey Rush, Jonathan Pryce.</string>
+	<string name="botaoIrMaps">Ver Localização</string>
+	<string name="botaoCriarCompromisso">Agendar\nCompromisso</string>
+	<string name="botaoArmazenarBusca">Armazenar\nBusca</string>
+	<string name="detalhesStringAutores">\nAtores: Johnny Depp, Orlando Bloom, Geoffrey
+		Rush, Jonathan Pryce.</string>
+	<string name="overview">
+		AndroidExamples
+		\n\n
+		Demonstrates database usage,
+		minimal UI/form, AsyncTask, and Application.
+		\n
+	</string>
+	<string name="in_label">Add name to database</string>
+	<string name="out_label">Current database contents</string>
+	<string name="add_new">Current database contents</string>
+	<string name="remove">Current database contents</string>
 </resources>
