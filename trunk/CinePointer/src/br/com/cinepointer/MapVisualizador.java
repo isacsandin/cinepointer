@@ -11,38 +11,34 @@ import com.google.android.maps.MyLocationOverlay;
 
 
 public class MapVisualizador extends MapActivity {
-	
+
 	MapView mapView;
 	MyLocationOverlay mlo;
 	GeoPoint GeoP;
-	
-//	@Override
-//	public void onActivityResult(int requestCode, int resultCode,
-//			Intent data) {
-//		
-//	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+				
+		if (mapView == null) {
+			setContentView(R.layout.mapaview);
+			mapView = (MapView) findViewById(R.id.mapaView) ;		
+			mapView.setClickable(true) ;
+			mapView.displayZoomControls(true);
+			mapView.setBuiltInZoomControls(true);
+			mapView.getController().setZoom(18);
+			mlo = new MyLocationOverlay(this, mapView) ;
+			mlo.enableCompass();
+			mlo.enableMyLocation();
+			mapView.getOverlays().add(mlo);
+		}
 		
-		mapView = (MapView) findViewById(R.id.mapaView);
-		mapView.setClickable(true) ;
-		mapView.displayZoomControls(true);
-		mapView.setBuiltInZoomControls(true);
-		mapView.getController().setZoom(18);
-		mlo = new MyLocationOverlay(this, mapView) ;
-		mlo.enableCompass();
-		mlo.enableMyLocation();
-		mapView.getOverlays().add(mlo);
-		setContentView(mapView);
-
-//		Button buttonLogoff = (Button) findViewById(R.id.buttonLogoff);
-//		buttonLogoff.setOnClickListener(new View.OnClickListener(){
-//			public void onClick(View arg0) {
-//				finish();
-//			}
-//		});
+		//		Button buttonLogoff = (Button) findViewById(R.id.buttonLogoff);
+		//		buttonLogoff.setOnClickListener(new View.OnClickListener(){
+		//			public void onClick(View arg0) {
+		//				finish();
+		//			}
+		//		});
 	}
 
 	@Override
@@ -50,6 +46,11 @@ public class MapVisualizador extends MapActivity {
 		return false;
 	}
 
+	//	@Override
+	//	public void onActivityResult(int requestCode, int resultCode,
+	//			Intent data) {
+	//		
+	//	}
 }
 
 

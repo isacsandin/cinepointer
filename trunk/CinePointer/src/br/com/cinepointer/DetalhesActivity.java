@@ -4,17 +4,16 @@ package br.com.cinepointer;
 import br.com.cinepointer.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class DetalhesActivity extends Activity{
-	AlertDialog.Builder dialogo; 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		dialogo = new AlertDialog.Builder(this);
 		setContentView(R.layout.detailed_information);
 	}
 
@@ -41,23 +40,17 @@ public class DetalhesActivity extends Activity{
 	public boolean onOptionsItemSelected(final MenuItem item) {
 		switch (item.getItemId()) {      
 		case 0:
-			this.imprimirMensagem("titulo","clicou Busca ");
+			Dialogs.imprimirMensagem(this,"titulo","clicou Busca ");
 			break;
 		case 1:
-			this.imprimirMensagem("titulo","clicou Compromisso");	
+			Dialogs.imprimirMensagem(this,"titulo","clicou Compromisso");	
 			break;
 		case 2:
-			this.imprimirMensagem("titulo","clicou Maps");	
+			Intent i = new Intent(this,MapVisualizador.class);
+			startActivity(i);	
 			break;
 		}
 		return true;
-	}
-
-	public void imprimirMensagem(String title, String msg){
-		dialogo.setTitle(title);
-		dialogo.setMessage(msg);
-		dialogo.setNeutralButton("OK", null);
-		dialogo.show();
 	}
 
 }

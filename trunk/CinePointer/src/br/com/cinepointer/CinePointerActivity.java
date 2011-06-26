@@ -13,16 +13,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class CinePointerActivity extends Activity {
-    private static final int ADD_NEW = 0;
-	private static final int REMOVE = 1;
-	/** Called when the activity is first created. */
-	
-	AlertDialog.Builder dialogo; 
-	
+
+		
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialogo = new AlertDialog.Builder(CinePointerActivity.this);
         setContentView(R.layout.inicial);
 	
         
@@ -74,12 +69,7 @@ public class CinePointerActivity extends Activity {
         s.setAdapter(adapter);
 	}
 	
-	public void imprimirMensagem(String title, String msg){
-		dialogo.setTitle(title);
-		dialogo.setMessage(msg);
-		dialogo.setNeutralButton("OK", null);
-		dialogo.show();
-		}
+
 	
 	
 }

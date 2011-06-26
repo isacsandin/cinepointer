@@ -12,14 +12,14 @@
 	<application android:label="@string/app_name" android:icon="@drawable/cinepointerlogo">
 		<uses-library android:name="com.google.android.maps" />
 		<activity android:label="@string/app_name" android:name=".CinePointerActivity">
-			<!-- <activity android:label="@string/app_name" android:name=".Main"> -->
-			<!-- <activity android:label="@string/app_name" android:name=".MapVisualizador"> -->
+		<!-- <activity android:label="@string/app_name" android:name=".Main"> -->
+<!-- 		<activity android:label="@string/app_name" android:name=".MapVisualizador"> -->
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<!-- <activity android:name=".CinePointerActivity" /> -->
+<!-- 		<activity android:name=".CinePointerActivity" /> -->
 		<activity android:name=".ListFilmView" />
 		<activity android:name=".DetalhesActivity" />
 		<activity android:name=".Main" />
