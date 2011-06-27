@@ -1,4 +1,4 @@
-package br.com.cinepointer;
+package br.com.cinepointer.database;
 
 import android.app.Application;
 import android.util.Log;

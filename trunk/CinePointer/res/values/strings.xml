@@ -10,11 +10,26 @@
 	<string name="labelFaixaHoraria">Faixa Horária:</string>
 	<string name="main_no_items">No orders to display</string>
 	<string-array name="arrayCidades">
+		<item>Todas</item>
 		<item>Cidade1</item>
 		<item>Cidade2</item>
 		<item>Cidade3</item>
 		<item>Cidade4</item>
 		<item>Cidade5</item>
+	</string-array>
+	<string-array name="arrayGeneros">
+		<item>Todos</item>
+		<item>genero1</item>
+		<item>genero2</item>
+		<item>genero3</item>
+		<item>genero4</item>
+		<item>genero5</item>
+	</string-array>
+		<string-array name="arrayHorarios">
+		<item>Todas</item>
+		<item>Manhã</item>
+		<item>Tarde</item>
+		<item>Noite</item>
 	</string-array>
 	<string name="labelResultadosPesquisa">Resultados da Pesquisa:</string>
 	<string name="detalhesNomeFilme">\nNome: Piratas Do Caribe</string>

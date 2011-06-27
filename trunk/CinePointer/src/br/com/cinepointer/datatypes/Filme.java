@@ -1,4 +1,4 @@
-package br.com.cinepointer;
+package br.com.cinepointer.datatypes;
 
 public class Filme {
 

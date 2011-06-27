@@ -1,19 +1,20 @@
-package br.com.cinepointer;
+package br.com.cinepointer.ui;
 
 
-import br.com.cinepointer.R;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import br.com.cinepointer.R;
 
 public class DetalhesActivity extends Activity{
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.detailed_information);
 	}
 
