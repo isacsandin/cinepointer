@@ -6,7 +6,7 @@
   android:layout_height="fill_parent">
       <LinearLayout android:id="@+id/linearLayout1" android:layout_width="fill_parent" android:orientation="horizontal" android:layout_height="150dip">
         <LinearLayout android:id="@+id/linearLayout4" android:layout_height="wrap_content" android:layout_width="150dip" android:orientation="vertical">
-            <ImageView android:layout_height="wrap_content" android:id="@+id/imageView1" android:layout_width="150dip" android:layout_weight="1" android:src="@drawable/piratas"></ImageView>
+            <ImageView android:id="@+id/imageView1" android:layout_width="150dip" android:layout_weight="1" android:src="@drawable/piratas" android:layout_marginTop="15dip" android:layout_height="150dip"></ImageView>
         </LinearLayout>
         <ScrollView android:layout_height="wrap_content" android:id="@+id/scrollView1" android:layout_width="fill_parent" android:layout_weight="1" android:visibility="visible">
             <LinearLayout android:id="@+id/linearLayout5" android:layout_height="fill_parent" android:layout_width="fill_parent" android:orientation="vertical">

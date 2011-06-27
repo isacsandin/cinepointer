@@ -1,4 +1,4 @@
-package br.com.cinepointer;
+package br.com.cinepointer.database;
 
 import android.content.Context;
 import android.database.Cursor;

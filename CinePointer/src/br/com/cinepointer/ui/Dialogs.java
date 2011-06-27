@@ -1,4 +1,4 @@
-package br.com.cinepointer;
+package br.com.cinepointer.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;

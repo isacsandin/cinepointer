@@ -1,16 +1,14 @@
-package br.com.cinepointer;
+package br.com.cinepointer.ui;
 
-import br.com.cinepointer.R;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import br.com.cinepointer.R;
 
 public class CinePointerActivity extends Activity {
 
@@ -18,36 +16,23 @@ public class CinePointerActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.inicial);
 	
         
-        String [] array_spinner =new String[5];
-        array_spinner[0]="Todas";
-        array_spinner[1]="Cidade 1";
-        array_spinner[2]="Cidade 2";
-        array_spinner[3]="Cidade 3";
-        array_spinner[4]="Cidade 4";
+        String [] array_spinner = getResources().getStringArray(R.array.arrayCidades);
         
         Spinner s = (Spinner) findViewById(R.id.spinner1);
       
         setSpinnerOptions(array_spinner,s);
  
-		array_spinner =new String[5];
-		array_spinner[0]="Todos";
-        array_spinner[1]="Gênero 1";
-        array_spinner[2]="Gênero 2";
-        array_spinner[3]="Gênero 3";
-        array_spinner[4]="Gênero 4";
+		array_spinner = getResources().getStringArray(R.array.arrayGeneros);
         
         s = (Spinner) findViewById(R.id.spinner2);
         
         setSpinnerOptions(array_spinner,s);
 
-		array_spinner =new String[4];
-		array_spinner[0]="Todos";
-        array_spinner[1]="Manhã";
-        array_spinner[2]="Tarde";
-        array_spinner[3]="Noite";
+        array_spinner = getResources().getStringArray(R.array.arrayHorarios);
         
         s = (Spinner) findViewById(R.id.spinner3);
         

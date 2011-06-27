@@ -1,4 +1,4 @@
-package br.com.cinepointer;
+package br.com.cinepointer.database;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import br.com.cinepointer.R;
+import br.com.cinepointer.R.id;
+import br.com.cinepointer.R.layout;
 
 import java.util.List;
 

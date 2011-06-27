@@ -1,8 +1,6 @@
-package br.com.cinepointer;
+package br.com.cinepointer.datatypes;
 
 import java.util.List;
-
-import br.com.cinepointer.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import br.com.cinepointer.R;
 
 public class FilmAdapter extends BaseAdapter {
 
