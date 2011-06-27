@@ -61,7 +61,7 @@ public class MapVisualizador extends MapActivity {
 				this.goTo(o);
 			}
 			this.DrawPath(gp1, gp2,Color.RED, mapView);
-			Dialogs.imprimirMensagem(this,"LEGAL",this.distancia(gp1, gp2).toString());
+			Dialogs.imprimirMensagem(this,"LEGAL",distancia(gp1, gp2).toString());
 		}
 		else{
 			Dialogs.imprimirMensagem(this,"ERRO","locais inválidos");
