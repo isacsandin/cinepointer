@@ -7,13 +7,13 @@ public class MyApplication extends Application {
 
    public static final String APP_NAME = "AndroidExamples";  
    
-   private DataHelper dataHelper;   
+   private DatabaseData dataHelper;   
    
    @Override
    public void onCreate() {
       super.onCreate();
       Log.d(APP_NAME, "APPLICATION onCreate");
-      this.dataHelper = new DataHelper(this);      
+      this.dataHelper = new DatabaseData(this);      
    }
    
    @Override
@@ -22,11 +22,11 @@ public class MyApplication extends Application {
       super.onTerminate();      
    }
 
-   public DataHelper getDataHelper() {
+   public DatabaseData getDataHelper() {
       return this.dataHelper;
    }
 
-   public void setDataHelper(DataHelper dataHelper) {
+   public void setDataHelper(DatabaseData dataHelper) {
       this.dataHelper = dataHelper;
    }
 }
