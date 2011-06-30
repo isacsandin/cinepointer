@@ -52,16 +52,13 @@ public class MapVisualizador extends MapActivity {
 		GeoPoint gp1 = getGeopoint("sjdr - mg");
 		GeoPoint gp2 = getGeopoint("lavras -mg");
 		if (gp1 != null && gp2 !=null){
-			GeoPoint o = ondeEstou();
+			GeoPoint o = myGpsLocation();
 			if(o == null){
 				Dialogs.imprimirMensagem(this,"ERRO","nao foi possivel te localizar");
-				this.goTo(gp2);
 			}
-			else{
-				this.goTo(o);
-			}
+			this.goTo(gp2);
 			this.DrawPath(gp1, gp2,Color.RED, mapView);
-			Dialogs.imprimirMensagem(this,"LEGAL",distancia(gp1, gp2).toString());
+			Dialogs.imprimirMensagem(this,"LEGAL",new Double(distancia(gp1, gp2)/1000).toString());
 		}
 		else{
 			Dialogs.imprimirMensagem(this,"ERRO","locais inválidos");
@@ -178,43 +175,41 @@ public class MapVisualizador extends MapActivity {
 			e.printStackTrace();
 		}
 	}
+	
+	public static Double distancia(GeoPoint gp1,GeoPoint gp2){
+		double lat1 = gp1.getLatitudeE6()/1.0E6;
+		double lat2 = gp2.getLatitudeE6()/1.0E6;
+		double lon1 = gp1.getLatitudeE6()/1.0E6;
+		double lon2 = gp2.getLongitudeE6()/1.0E6;
+		return getDistancia(ToRadians(lat1),ToRadians(lon1),ToRadians(lat2),ToRadians(lon2));
 
-	public static Double distancia(GeoPoint gp1,GeoPoint gp2) {
-		double lat1 = gp1.getLatitudeE6();
-		double lat2 = gp2.getLatitudeE6();
-		double lon1 = gp1.getLatitudeE6();
-		double lon2 = gp2.getLongitudeE6();
-		double raio = 3958.75;
-		double dlat = ToRadians(lat2 - lat1);
-		double dlon = ToRadians(lon2 - lon1);
-
-		double a = Math.sin(dlat / 2) * Math.sin(dlat / 2)
-		+ Math.cos(ToRadians(lat1)) * Math.cos(ToRadians(lat2))
-		* Math.sin(dlon / 2) * Math.sin(dlon / 2);
-		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-		Double d = raio * c;
-
-		double meterConversion = 1609.00;
-		return d * meterConversion;
 	}
+	
+    public static Double getDistancia(double latitude, double longitude, double latitudePto, double longitudePto){  
+        double dlon, dlat, a, distancia;  
+        dlon = longitudePto - longitude;  
+        dlat = latitudePto - latitude;  
+        a = Math.pow(Math.sin(dlat/2),2) + Math.cos(latitude) * 
+        Math.cos(latitudePto) * Math.pow(Math.sin(dlon/2),2);  
+        distancia = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));  
+        return 6378140 * distancia; /* 6378140 is the radius of the Earth in meters*/  
+    }  
 
 	private static double ToRadians(double degrees) {
-		double radians = degrees * 3.1415926535897932385 / 180;
+		double radians = degrees * Math.PI / 180;
 		return radians;
 	}
 
 	//Verifica se (lat1, lon1) está dentro do (lat2, lon2)+raio
-
 	public static boolean verificarProximidade(GeoPoint gp1,GeoPoint gp2, int raio) {
 		if (distancia(gp1,gp2) > raio) {
 			return false;
 		}
-
 		//Se estiver dentro do raio*/
 		return true;
 	}
 
-	public GeoPoint ondeEstou(){
+	public GeoPoint myGpsLocation(){
 		// Obtem uma instancia do servico gerenciador de localizacao
 		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		if (locationManager != null){

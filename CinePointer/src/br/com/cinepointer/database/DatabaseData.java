@@ -10,7 +10,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataHelper {
+public class DatabaseData {
 
    private static final String DATABASE_NAME = "example.db";
    private static final int DATABASE_VERSION = 1;
@@ -22,7 +22,7 @@ public class DataHelper {
    private SQLiteStatement insertStmt;
    private static final String INSERT = "insert into " + TABLE_NAME + "(name) values (?)";
 
-   public DataHelper(Context context) {
+   public DatabaseData(Context context) {
       this.context = context;
       OpenHelper openHelper = new OpenHelper(this.context);
       this.db = openHelper.getWritableDatabase();
