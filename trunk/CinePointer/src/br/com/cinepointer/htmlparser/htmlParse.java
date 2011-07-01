@@ -13,7 +13,6 @@ import org.htmlparser.util.ParserException;
 public class htmlParse {
 
 	static String url = "http://www.cinemaki.com.br/shows";
-	//static String nextPage = "/shows";
 
 	void processMyNodes (Node node)
 	{
@@ -22,7 +21,7 @@ public class htmlParse {
 		{
 			// downcast to TagNode
 			TagNode tag = (TagNode)node;
-			
+
 			if(tag.getAttributeEx("class") != null){
 				if(tag.getAttributeEx("class").getRawValue().equals("\"fl oh\"")){
 					processFilmDiv(tag);
@@ -30,6 +29,10 @@ public class htmlParse {
 				if(tag.getAttributeEx("class").getRawValue().equals("\"newpager\"")){
 					url = processNextPageDiv(tag);
 				}
+//				if(tag.getAttributeEx("class").getRawValue().equals("\"first genre\"")){ 
+//					processStatesDiv(tag);
+//				}
+
 			}
 			NodeList nl = tag.getChildren();
 			if (null != nl)
@@ -42,6 +45,35 @@ public class htmlParse {
 		}
 	}
 
+//	private void processStatesDiv(TagNode tag) {
+//		NodeList nl = tag.getChildren(); 
+//		if (null != nl)
+//			try { 
+//				for (NodeIterator i = nl.elements(); i.hasMoreNodes(); ){ 
+//					Node n = i.nextNode(); 
+//					if(n instanceof TagNode){ 
+//						TagNode t = (TagNode) n; 
+//						if(t.getTagName().equals("LI")){
+//							NodeList li = t.getChildren();
+//							if(null != li) { 
+//								Node[] nodes = li.toNodeArray();
+//								for (Node tmp : nodes) { 
+//									if(tmp instanceof LinkTag){ 
+//										LinkTag lt = (LinkTag) tmp; 
+//										System.out.println(lt.getLink());
+//										System.out.println(lt.getLinkText()); 
+//									}
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		catch (ParserException e) { 
+//			// TODO Auto-generated catch block e.printStackTrace(); 
+//		}
+//	}
+
 	private String processNextPageDiv(TagNode tag) {
 		NodeList nl = tag.getChildren();
 		if (null != nl){
@@ -51,7 +83,7 @@ public class htmlParse {
 					if(n instanceof TagNode){
 						TagNode t = (TagNode) n;
 						if(t.getAttributeEx("class") != null){
-							
+
 							//esse avanca para a proxima pagina
 							if(t.getAttributeEx("class").getRawValue().equals("\"fr\"")){
 								Node[] nodes = t.getChildren().toNodeArray();
@@ -109,9 +141,6 @@ public class htmlParse {
 		htmlParse process = new htmlParse();
 
 		while (url !=null){
-			System.out.println("===================================================");
-			System.out.println(url);
-			System.out.println("===================================================");
 			try {
 				parser = new Parser (url);
 			} catch (ParserException e1) {
