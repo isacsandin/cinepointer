@@ -1,5 +1,6 @@
 package br.com.cinepointer.database;
 
+import br.com.cinepointer.ui.Dialogs;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -17,13 +18,26 @@ public class CalendarData {
 	 * @param dtstart Start time: The value is the number of milliseconds since Jan. 1, 1970, midnight GMT.
 	 * @param dtend End time: The value is the number of milliseconds since Jan. 1, 1970, midnight GMT.
 	 */
-	private static void addToCalendar(Context ctx, final String title, final long dtstart, final long dtend) {
+	public static void addToCalendar(Context ctx, final String title, final long dtstart, final long dtend) {
 	    final ContentResolver cr = ctx.getContentResolver();
-	    Cursor cursor ;
-	    if (Integer.parseInt(Build.VERSION.SDK) == 8 )
-	        cursor = cr.query(Uri.parse("content://com.android.calendar/calendars"), new String[]{ "_id", "displayname" }, null, null, null);
-	    else
-	        cursor = cr.query(Uri.parse("content://calendar/calendars"), new String[]{ "_id", "displayname" }, null, null, null);
+	    Cursor cursor = null ;
+	    ///if (Integer.parseInt(Build.VERSION.SDK) >= 8 )
+	    //Uri uri = Uri.parse("content://com.android.calendar/calendars");
+	    Uri uri = Uri.parse("content://calendar/calendars");
+	    if(uri != null){
+	    	Dialogs.imprimirMensagem(ctx,"erro",uri.toString());
+		    cursor = cr.query(uri, new String[]{ "_id", "displayname" }, null, null, null);
+	    }
+	    else{
+	    	Dialogs.imprimirMensagem(ctx,"erro","uri e nulo");
+	    }
+	    //else
+	        //cursor = cr.query(Uri.parse("content://calendar/calendars"), new String[]{ "_id", "displayname" }, null, null, null);
+	    if(cursor == null ){
+	    	Dialogs.imprimirMensagem(ctx,"erro","cursor e nulo");
+	    	
+	    }
+	    else{
 	    if ( cursor.moveToFirst() ) {
 	        final String[] calNames = new String[cursor.getCount()];
 	        final int[] calIds = new int[cursor.getCount()];
@@ -69,5 +83,6 @@ public class CalendarData {
 	        builder.create().show();
 	    }
 	    cursor.close();
+	    }
 	}
 }
