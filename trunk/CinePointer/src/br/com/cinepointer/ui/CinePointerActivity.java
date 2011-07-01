@@ -1,5 +1,7 @@
 package br.com.cinepointer.ui;
 
+import java.util.GregorianCalendar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import br.com.cinepointer.R;
+import br.com.cinepointer.database.CalendarData;
 
 public class CinePointerActivity extends Activity {
 
@@ -19,7 +22,7 @@ public class CinePointerActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.inicial);
 
-
+	
 		String [] array_spinner = getResources().getStringArray(R.array.arrayCidades);
 
 		Spinner s = (Spinner) findViewById(R.id.spinner1);
@@ -40,6 +43,11 @@ public class CinePointerActivity extends Activity {
 
 		Button b = (Button) findViewById(R.id.botaoPesquisar);
 
+		CalendarData.addToCalendar(this,"Compromisso1",
+		new GregorianCalendar(2011,6,30,17,30).getTimeInMillis(),
+		new GregorianCalendar(2011,6,30,19,30).getTimeInMillis()
+		);
+		
 		b.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent i = new Intent(CinePointerActivity.this,ListFilmView.class);
