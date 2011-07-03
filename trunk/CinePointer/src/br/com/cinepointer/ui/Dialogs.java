@@ -2,6 +2,7 @@ package br.com.cinepointer.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.widget.Toast;
 
 public class Dialogs {
 	
@@ -13,4 +14,8 @@ public class Dialogs {
 		dialogo.setNeutralButton("OK", null);
 		dialogo.show();
 		}
+	public static void imprimirTexto(Context con,String msg){
+		Toast.makeText(con,msg,Toast.LENGTH_LONG).show();
+	}
+
 }

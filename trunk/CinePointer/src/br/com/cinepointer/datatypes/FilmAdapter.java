@@ -1,8 +1,14 @@
 package br.com.cinepointer.datatypes;
 
+import br.com.cinepointer.datatypes.Filme;
+
+import java.net.URI;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +57,8 @@ public class FilmAdapter extends BaseAdapter {
         
         //icone
         ImageView img = (ImageView)view.findViewById(R.id.imageFilme);
-        img.setImageResource(filme.getBanner());
+        img.setImageResource(R.drawable.piratas);
+        //img.setImageBitmap(new BitmapFactory().decodeFile(filme.getBanner()));
         return view;
 
     }
