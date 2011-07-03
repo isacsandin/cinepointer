@@ -1,5 +1,7 @@
 package br.com.cinepointer.datatypes;
 
+import java.util.ArrayList;
+
 public class Filme {
 
     private String nome;
@@ -10,7 +12,10 @@ public class Filme {
     private String sinopse;
     private String site;
     private String banner;
+    private String pontuacao;
+    private ArrayList<String> horario;
     
+    		
     public Filme(){
         this.nome="";
     	this.genero="";
@@ -20,6 +25,8 @@ public class Filme {
         this.sinopse="";
         this.site="";
         this.banner="";	
+        this.pontuacao="";
+        setHorario(new ArrayList<String>());
     }
     
     /**
@@ -115,6 +122,22 @@ public class Filme {
     public void setBanner(String banner) {
         this.banner = banner;
     }
+
+	public void setPontuacao(String pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+
+	public String getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setHorario(ArrayList<String> horario) {
+		this.horario = horario;
+	}
+
+	public ArrayList<String> getHorario() {
+		return horario;
+	}
 
 }
 

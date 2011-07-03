@@ -18,19 +18,19 @@ public class HtmlParser {
 	
 	public static void parse() throws IOException{
 
-		//String url = "http://www.cinemaki.com.br/shows";
+//		String url = "http://www.cinemaki.com.br/shows";
 //		String url ="http://www.cinemaki.com.br/cinemas/tag/95";
-		//String url ="http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806";
+//		String url ="http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806";
 //		String url = "http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54";
-		//String url = "http://www.cinemaki.com.br/Carros-2/p/2339";
+//		String url = "http://www.cinemaki.com.br/Carros-2/p/2339";
 
 //		while(url != null ){
 			ArrayList<Cinema> ListaCinema = new ArrayList<Cinema>();
 			ArrayList<Filme> ListaFilme = new ArrayList<Filme>();
-//			url = processCinemPageDetails(url);
+			ListaFilme = processCinemPageDetails("http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806");
 //			ListaCinema = processCinemPage("http://www.cinemaki.com.br/cinemas/tag/95");
 //          ListaFilme = processFilmPage("http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54");
-			ListaFilme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
+//			ListaFilme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
 //			url =null;
 //		}
 
@@ -85,27 +85,45 @@ public class HtmlParser {
 	}
 	
 	
-	//
-	private static String processCinemPageDetails(String url) throws IOException {
+	//Filmes em Cartaz em um determinado Cinema 
+	//String url ="http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806";
+	private static ArrayList<Filme> processCinemPageDetails(String url){
 
-		url +="?version=desktop";
-
-		Document doc = Jsoup.connect(url).get();
+		Filme filme;
+		ArrayList<Filme> listFilme = new ArrayList<Filme>();
 		
-		Elements links = doc.select("[class~=p10 oh nbb boxed]");
+		url +="?version=desktop";
+		
+		Document doc;
+		try {
+			doc = Jsoup.connect(url).get();
+		} catch (IOException e) {
+			return null;
+		}
+		
+		Elements links = doc.select("[class~=p10 oh ]");
 		for (Element link : links) {
-			Log.d("HTMLPARSER::","FILME: "+link.select("a > img").attr("title"));
-			Log.d("HTMLPARSER::","IMAGEM: "+link.select("a > img").attr("src"));
-			Log.d("HTMLPARSER::","DETALHES: "+link.select("a > img").parents().first().attr("abs:href"));
-			Log.d("HTMLPARSER::","PONTUACAO: "+link.select("[class~=t oh]").select("[class~=f10 m10t]").select("img").attr("title"));
-			Log.d("HTMLPARSER::","HORARIOS:");
+			filme = new Filme();
+			filme.setNome(link.select("a > img").attr("title"));
+			System.out.println(filme.getNome());
+			filme.setBanner(link.select("a > img").attr("src"));
+			System.out.println(filme.getBanner());
+			filme.setSite(link.select("a > img").parents().first().attr("abs:href"));
+			System.out.println(filme.getSite());
+			filme.setPontuacao(link.select("[class~=t oh]").select("[class~=f10 m10t]").select("img").attr("title"));
+			System.out.println(filme.getPontuacao());
+			ArrayList<String> str = new ArrayList<String>();
 			for (Element element : link.select("[class~=oh] > h4 > a")) {
-				Log.d("HTMLPARSER::",element.text());
+				str.add(element.text());
 			}
-			Log.d("HTMLPARSER::","==========");
+			filme.setHorario(str);
+			System.out.println(filme.getHorario());
+			System.out.println("==========");
+			
+			listFilme.add(filme);
 		}
 
-		return null;
+		return listFilme;
 	}
 	
 
