@@ -19,19 +19,20 @@ public class HtmlParser {
 	public static void parse() throws IOException{
 
 		//String url = "http://www.cinemaki.com.br/shows";
-		String url ="http://www.cinemaki.com.br/cinemas/tag/95";
+//		String url ="http://www.cinemaki.com.br/cinemas/tag/95";
 		//String url ="http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806";
-		//String url = "http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54";
+//		String url = "http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54";
 		//String url = "http://www.cinemaki.com.br/Carros-2/p/2339";
 
-		while(url != null ){
-
-			//url = processCinemPageDetails(url);
-			ArrayList<Cinema> ListaCinema = processCinemPage(url);
-			//url = processFilmPage(url);
-			//ArrayList<Filme> ListaFilme  = processFilmDetailsPage(url);
-			url =null;
-		}
+//		while(url != null ){
+			ArrayList<Cinema> ListaCinema = new ArrayList<Cinema>();
+			ArrayList<Filme> ListaFilme = new ArrayList<Filme>();
+//			url = processCinemPageDetails(url);
+//			ListaCinema = processCinemPage("http://www.cinemaki.com.br/cinemas/tag/95");
+//          ListaFilme = processFilmPage("http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54");
+			ListaFilme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
+//			url =null;
+//		}
 
 	}
 	
@@ -47,11 +48,10 @@ public class HtmlParser {
 		try {
 			doc = Jsoup.connect(url).get();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			return null;
 		}
 		Elements imgs = doc.select("img[class~=new_4col]");
-			filme.setBanner(imgs.first().attr("src"));
+		filme.setBanner(imgs.first().attr("src"));
 
 		Elements links = doc.select("[class~=new_7col fl m10l]");
 		for (Element link : links) {
@@ -114,7 +114,7 @@ public class HtmlParser {
 	private static ArrayList<Cinema> processCinemPage(String urlEntrada){
 		
 		ArrayList<Cinema> listCinema = new ArrayList<Cinema>();
-		Cinema cinema = new Cinema();
+		Cinema cinema;
 		HashMap<String, String> hash = new HashMap<String, String>();
 		
 		String url = urlEntrada;
@@ -129,6 +129,7 @@ public class HtmlParser {
 		
 		Elements links = doc.select("[class~=p10 theater_row]");
 		for (Element link : links) {
+			cinema = new Cinema();
 			cinema.setNome(link.select("h4").first().text());
 			Log.d("HTMLPARSER::",cinema.getNome());
 			cinema.setLink(link.select("h4 > a").first().attr("abs:href"));
@@ -154,28 +155,44 @@ public class HtmlParser {
 
 
 
-	private static String processFilmPage(String url) throws IOException {
+	private static ArrayList<Filme> processFilmPage(String url) {
 
-		url +="?version=desktop";
-		
-		Document doc = Jsoup.connect(url).get();
+		ArrayList<Filme> listFilme = new ArrayList<Filme>();
+		Filme filme;
+		while(url != null){
 
-		Elements links = doc.select("[class~=fl oh] > a > img");
-		for (Element link : links) {
-			Log.d("HTMLPARSER::","NOME: "+link.parent().attr("title"));
-			Log.d("HTMLPARSER::","LINK: "+link.parent().attr("abs:href"));
-			Log.d("HTMLPARSER::","IMAGEM: "+link.attr("src"));
-			Log.d("HTMLPARSER::","==========");
-		}
+			url +="?version=desktop";
+			
+			Document doc;
+			try {
+				doc = Jsoup.connect(url).get();
+			} catch (IOException e) {
+				return null;
+			}
+	
+			Elements links = doc.select("[class~=fl oh] > a > img");
+			for (Element link : links) {
+				filme = new Filme();
+				filme.setNome(link.parent().attr("title"));
+				Log.d("HTMLPARSER::",filme.getNome());
+				filme.setSite(link.parent().attr("abs:href"));
+				Log.d("HTMLPARSER::",filme.getSite());
+				filme.setBanner(link.attr("src"));
+				Log.d("HTMLPARSER::",filme.getBanner());
+				Log.d("HTMLPARSER::","==========");
+				
+				listFilme.add(filme);
+			}
 
-		Element link = doc.select("div.newpager > div.fr > a").first();
-		if(link !=null){
-			url = link.attr("abs:href");
-		}
-		else{
-			url = null;
-		}
-		return url;
+		    Element link = doc.select("div.newpager > div.fr > a").first();
+			if(link !=null){
+				url = link.attr("abs:href");
+			}
+			else{
+				url = null;
+			}
+		}		
+		return listFilme;
 	}
 
 	public static void parser(){
