@@ -1,6 +1,8 @@
 package br.com.cinepointer.ui;
 
 
+import br.com.cinepointer.datatypes.Filme;
+
 import java.util.ArrayList;
 
 import android.app.ListActivity;
@@ -18,7 +20,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import br.com.cinepointer.R;
-import br.com.cinepointer.datatypes.Filme;
 
 public class ListFilmView extends ListActivity implements OnItemClickListener{
 
