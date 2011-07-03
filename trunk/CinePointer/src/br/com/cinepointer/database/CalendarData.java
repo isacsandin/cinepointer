@@ -25,16 +25,16 @@ public class CalendarData {
 	    //Uri uri = Uri.parse("content://com.android.calendar/calendars");
 	    Uri uri = Uri.parse("content://calendar/calendars");
 	    if(uri != null){
-	    	Dialogs.imprimirMensagem(ctx,"erro",uri.toString());
+	    	Dialogs.imprimirTexto(ctx,uri.toString());
 		    cursor = cr.query(uri, new String[]{ "_id", "displayname" }, null, null, null);
 	    }
 	    else{
-	    	Dialogs.imprimirMensagem(ctx,"erro","uri e nulo");
+	    	Dialogs.imprimirTexto(ctx,"uri e nulo");
 	    }
 	    //else
 	        //cursor = cr.query(Uri.parse("content://calendar/calendars"), new String[]{ "_id", "displayname" }, null, null, null);
 	    if(cursor == null ){
-	    	Dialogs.imprimirMensagem(ctx,"erro","cursor e nulo");
+	    	Dialogs.imprimirTexto(ctx,"cursor e nulo");
 	    	
 	    }
 	    else{
