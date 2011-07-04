@@ -4,12 +4,16 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import br.com.cinepointer.R;
+import br.com.cinepointer.database.ImageDownloader;
 import br.com.cinepointer.htmlparser.HtmlParser;
 
 public class CinePointerActivity extends Activity {
@@ -21,7 +25,16 @@ public class CinePointerActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.escolhe_pesquisa);
 
-
+		ImageView im = (ImageView) findViewById(R.id.imageFilme);
+		
+		boolean sucesso = ImageDownloader.DownloadFromUrl("http://images.cinemaki.com/m/96/2339.jpg","imagem");
+		
+		if (sucesso){
+		im.setImageBitmap(new BitmapFactory().decodeFile("/data/data/br.com.cinepointer/imagem"));
+		}
+		else{
+			Dialogs.imprimirMensagem(this,"ERRO","ERRO DOwNLOAD");
+		}
 		try {
 			HtmlParser.parse();
 		} catch (IOException e) {
