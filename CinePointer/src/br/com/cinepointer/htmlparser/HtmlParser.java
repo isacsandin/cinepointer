@@ -27,7 +27,9 @@ public class HtmlParser {
 //		while(url != null ){
 			ArrayList<Cinema> ListaCinema = new ArrayList<Cinema>();
 			ArrayList<Filme> ListaFilme = new ArrayList<Filme>();
-			ListaFilme = processCinemPageDetails("http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806");
+			ArrayList<Sala> ListaSala = new ArrayList<Sala>();
+//			ListaFilme = processCinemPageDetails("http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806");
+			ListaSala = processFilmShowtimes("http://www.cinemaki.com.br/Estranhos-Normais/p/53333/showtimes");
 //			ListaCinema = processCinemPage("http://www.cinemaki.com.br/cinemas/tag/95");
 //          ListaFilme = processFilmPage("http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54");
 //			ListaFilme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
@@ -213,6 +215,64 @@ public class HtmlParser {
 		return listFilme;
 	}
 
+	
+	//Listar Salas de uma cidade
+	private static ArrayList<Sala> processFilmShowtimes(String url) {
+
+		Sala sala;
+		ArrayList<Sala> salas = new ArrayList<Sala>();
+		
+		ArrayList<String> hr;
+		
+        url +="?version=desktop";
+
+        Document doc;
+		try {
+			doc = Jsoup.connect(url).get();
+		} catch (IOException e) {
+			return null;
+		}
+        
+        Elements links = doc.select("[class~=showtimes_class]");
+        for (Element link : links) {
+                for (Element element : link.select("li")) {
+                		for (Element el : element.select("a.collapsed")) {
+                			String cidade = el.text();
+							
+		                        for (Element divs : element.select("ul > li > div[class~=cinema]")) {
+									sala = new Sala();
+									sala.setCidade(cidade);
+									
+		                        	sala.setCinema(divs.select("a[class~=cinema-title]").first().text());
+	                            	
+		                        	sala.setUrlCinema(divs.select("a[class~=cinema-title]").first().attr("abs:href"));
+	                            	
+	                            	hr = new ArrayList<String>();
+	                            	for (Element divs2 : divs.select("span > a[class~=oh di horarios")) {
+	                            		hr.add(divs2.text());
+									}
+	                            	sala.setHorario(hr);
+	
+	                            	salas.add(sala);
+		                        }
+						}
+                }
+        }
+		for (Sala sala2 : salas) {
+			Log.d("HTMLPARSER::","#####################################");
+			Log.d("HTMLPARSER::",sala2.getCidade());
+			Log.d("HTMLPARSER::",sala2.getCinema());
+			Log.d("HTMLPARSER::",sala2.getUrlCinema());
+			for(String str : sala2.getHorario()){
+				Log.d("HTMLPARSER::",str);
+			}
+		}
+
+
+        return salas;
+   }
+	
+	
 	public static void parser(){
 
 		try {
