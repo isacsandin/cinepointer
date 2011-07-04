@@ -39,7 +39,7 @@ public class HtmlParser {
 	}
 	
 	//Detalhes Filme
-	private static ArrayList<Filme> processFilmDetailsPage(String url) {
+	public static ArrayList<Filme> processFilmDetailsPage(String url) {
         
 		Filme filme = new Filme();
 		ArrayList<Filme> listFilme = new ArrayList<Filme>();
@@ -89,7 +89,7 @@ public class HtmlParser {
 	
 	//Filmes em Cartaz em um determinado Cinema 
 	//String url ="http://www.cinemaki.com.br/Cinemark-Diamond-Mall/t/2806";
-	private static ArrayList<Filme> processCinemPageDetails(String url){
+	public static ArrayList<Filme> processCinemPageDetails(String url){
 
 		Filme filme;
 		ArrayList<Filme> listFilme = new ArrayList<Filme>();
@@ -131,7 +131,7 @@ public class HtmlParser {
 
 	//Informações de Cinemas de uma cidade
 	//String url ="http://www.cinemaki.com.br/cinemas/tag/95";
-	private static ArrayList<Cinema> processCinemPage(String urlEntrada){
+	public static ArrayList<Cinema> processCinemPage(String urlEntrada){
 		
 		ArrayList<Cinema> listCinema = new ArrayList<Cinema>();
 		Cinema cinema;
@@ -175,7 +175,7 @@ public class HtmlParser {
 
 
 
-	private static ArrayList<Filme> processFilmPage(String url) {
+	public static ArrayList<Filme> processFilmPage(String url) {
 
 		ArrayList<Filme> listFilme = new ArrayList<Filme>();
 		Filme filme;
@@ -217,7 +217,7 @@ public class HtmlParser {
 
 	
 	//Listar Salas de uma cidade
-	private static ArrayList<Sala> processFilmShowtimes(String url) {
+	public static ArrayList<Sala> processFilmShowtimes(String url) {
 
 		Sala sala;
 		ArrayList<Sala> salas = new ArrayList<Sala>();
