@@ -31,12 +31,12 @@ public class HtmlParser {
 			ListaSala = processFilmShowtimes("http://www.cinemaki.com.br/Estranhos-Normais/p/53333/showtimes");
 //			ListaCinema = processCinemPage("http://www.cinemaki.com.br/cinemas/tag/95");
 //          ListaFilme = processFilmPage("http://www.cinemaki.com.br/Anima%C3%A7%C3%A3o-/shows/tag/54");
-//			ListaFilme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
+//			Filme filme  = processFilmDetailsPage("http://www.cinemaki.com.br/Carros-2/p/2339");
 
 	}
 	
 	//Detalhes Filme
-	public static ArrayList<Filme> processFilmDetailsPage(String url) {
+	public static Filme processFilmDetailsPage(String url) {
         
 		Filme filme = new Filme();
 		ArrayList<Filme> listFilme = new ArrayList<Filme>();
@@ -77,10 +77,9 @@ public class HtmlParser {
 			filme.setSinopse(sinopse.text());
 			Log.d("HTMLPARSER::",filme.getSinopse());
 			Log.d("HTMLPARSER::","==========");
-			listFilme.add(filme);
 		}
 
-		return listFilme;
+		return filme;
 	}
 	
 	
