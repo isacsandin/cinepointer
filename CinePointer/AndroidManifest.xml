@@ -22,10 +22,19 @@
 			</intent-filter>
 		</activity>
 		<!-- <activity android:name=".CinePointerActivity" /> -->
-		<activity android:name=".ui.ListFilmView" />
-		<activity android:name=".ui.DetalhesActivity" />
-		<activity android:name=".ui.MapVisualizador" />
-		<activity android:name=".database.Main" />
-		<activity android:name=".database.ManageData" />
+		<activity android:name=".ui.ListFilmView">
+		</activity>
+		<activity android:name=".ui.DetalhesActivity">
+		</activity>
+		<activity android:name=".ui.MapVisualizador">
+		</activity>
+		<activity android:name=".database.Main">
+		</activity>
+		<activity android:name=".database.ManageData">
+		</activity>
+		<activity android:name=".ui.PesquisaLocalizacaoActivity">
+		</activity>
+		<activity android:name=".ui.PesquisaNomeActivity">
+		</activity>				
 	</application>
 </manifest>

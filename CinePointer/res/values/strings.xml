@@ -41,6 +41,11 @@
 	que está com os dias contados. Desta forma, Angelica quer encontrar a
 	 Fonte da Juventude para que seu pai tenha mais alguns anos de vida.
 	 No encalço deles está o capitão Barbossa (Geoffrey Rush),
+	 que agora trabalha para o império britânico.O capitão Jack Sparrow (Johnny Depp) vai até Londres para resgatar Gibbs (Kevin McNally), integrante de sua tripulação no Pérola Negra. Lá ele descobre que alguém está usando seu nome para conseguir marujos em uma viagem rumo à Fonte da Juventude. Sparrow investiga e logo percebe que Angelica (Penélope Cruz), um antigo caso que balançou seu coração, é a responsável 
+	pela farsa. Ela é filha do lendário pirata Barba Negra (Ian McShane), 
+	que está com os dias contados. Desta forma, Angelica quer encontrar a
+	 Fonte da Juventude para que seu pai tenha mais alguns anos de vida.
+	 No encalço deles está o capitão Barbossa (Geoffrey Rush),
 	 que agora trabalha para o império britânico.</string>
 	<string name="detalhesHorarios">\nLocais:\n
 		Cine Glória1: 10:00,12:00,15:40,19:00\n
@@ -62,4 +67,14 @@
 	<string name="out_label">Current database contents</string>
 	<string name="add_new">Current database contents</string>
 	<string name="remove">Current database contents</string>
+	
+	
+	<string name="activity_intents">App/Intents</string>
+    <string name="intents">Example of launching various Intents.</string>
+    <string name="get_music">Get Music</string>
+    <string name="stringPesquisaPorNome">Pesquisa por Nome</string>
+    <string name="stringPesquisaPorLocalizacao">Pesquisa por Localização</string>
+    <string name="stringTituloPesquisa">Escolha uma pesquisa e Clique em ok</string>
+    <string name="stringVazia"></string>
+    <string name="labelEstado">Estado:</string>
 </resources>
