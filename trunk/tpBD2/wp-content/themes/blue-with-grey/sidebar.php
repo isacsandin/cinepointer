@@ -22,23 +22,33 @@
         <div class="widget">
             <h3><?php _e('Nuvem de termos','blue_with_grey')?></h3>
             <div id="tcdiv"></div>
-            <script type="text/javascript">
-              google.load("visualization", "1");
-              google.setOnLoadCallback(draw);
-              function draw() {
-                data = new google.visualization.DataTable();
-                data.addColumn('string', 'Label');
-                data.addColumn('number', 'Value');
-                data.addColumn('string', 'Link');
-                data.addRows([
-                    ['termo',980001,'http://www.globo.com'],
-                    ['terminho',235566,'http://www.google.com']
-                ]);
-                var outputDiv = document.getElementById('tcdiv');
-                var tc = new TermCloud(outputDiv);
-                tc.draw(data, null);
-              }
-            </script>
+                <!--Load the AJAX API-->
+
+    <script type="text/javascript">
+    
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var jsonData = $.ajax({
+          url: "getDataTerms.php",
+          dataType:"json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+
+      // Instantiate and draw our chart, passing in some options.
+    var outputDiv = document.getElementById('tcdiv');
+    var tc = new TermCloud(outputDiv);
+    tc.draw(data, null);
+    }
+
+    </script>
         </div>
         <?php /* If this is the frontpage  if ( is_home() || is_page() ) { */ ?>
         <!--			<div class="widget">

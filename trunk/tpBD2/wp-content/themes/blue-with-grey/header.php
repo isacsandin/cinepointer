@@ -4,6 +4,7 @@
         <link rel="stylesheet" type="text/css" href="http://visapi-gadgets.googlecode.com/svn/trunk/termcloud/tc.css"/>
         <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/termcloud/tc.js"></script>
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
        <script type='text/javascript'>
    google.load('visualization', '1', {'packages': ['geochart']});
    google.setOnLoadCallback(drawMarkersMap);
