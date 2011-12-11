@@ -9,7 +9,7 @@
 */
 
 $dbserver  = "localhost";	// Servidor onde está o banco de dados
-$dbname    = "wp_TP_BD";		// Nome do banco de dados MySQL 
+$dbname    = "twitter_bd";		// Nome do banco de dados MySQL 
 $dbuser    = "usuarioMySQL";		// Uusuariosuario MySQL para conexao 
 $dbpassw   = "naosei";	// Senha do usuario MySQL
 
