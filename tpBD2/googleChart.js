@@ -25,9 +25,9 @@ tc.draw(data, null);
 google.load('visualization', '1', {'packages':['corechart']});
   
 // Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawChart);
+google.setOnLoadCallback(drawChart2);
   
-function drawChart() {
+function drawChart2() {
   var jsonData = $.ajax({
 	  url: "getDataHashtags.php",
 	  dataType:"json",
