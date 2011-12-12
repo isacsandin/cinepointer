@@ -8,48 +8,15 @@
             </ul>
         </div>-->
         <div class="widget">
-            <h3><?php _e('Informações', 'blue_with_grey'); ?></h3>
-            <ul>
-                <?php wp_list_categories('title_li='); ?>
-            </ul>
-        </div>
-<!--        <div class="widget">
-            <h3><?php //_e('Arquivos', 'blue_with_grey'); ?></h3>
-            <ul>
-                <?php// wp_get_archives('type=monthly'); ?>
-            </ul>
-        </div>-->
-        <div class="widget">
             <h3><?php _e('Nuvem de termos','blue_with_grey')?></h3>
-            <div id="tcdiv"></div>
+            <div id="div_tags"></div>
                 <!--Load the AJAX API-->
-
-    <script type="text/javascript">
-    
-    // Load the Visualization API and the piechart package.
-    google.load('visualization', '1', {'packages':['corechart']});
-      
-    // Set a callback to run when the Google Visualization API is loaded.
-    google.setOnLoadCallback(drawChart);
-      
-    function drawChart() {
-      var jsonData = $.ajax({
-          url: "getDataTerms.php",
-          dataType:"json",
-          async: false
-          }).responseText;
-          
-      // Create our data table out of JSON data loaded from server.
-      var data = new google.visualization.DataTable(jsonData);
-
-      // Instantiate and draw our chart, passing in some options.
-    var outputDiv = document.getElementById('tcdiv');
-    var tc = new TermCloud(outputDiv);
-    tc.draw(data, null);
-    }
-
-    </script>
         </div>
+        <div class="widget">
+            <h3><?php _e('Nuvem de Hashtags','blue_with_grey')?></h3>
+            <div id="div_hastag"></div>
+                <!--Load the AJAX API-->
+        </div>        
 <div>
     <script src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
