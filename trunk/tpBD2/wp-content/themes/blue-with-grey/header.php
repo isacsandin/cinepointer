@@ -5,33 +5,7 @@
         <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/termcloud/tc.js"></script>
         <script type="text/javascript" src="http://www.google.com/jsapi"></script>
         <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
-       <script type='text/javascript'>
-   google.load('visualization', '1', {'packages': ['geochart']});
-   google.setOnLoadCallback(drawMarkersMap);
-
-    function drawMarkersMap() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Região');
-    data.addColumn('number', 'População');
-    data.addColumn('number', 'Tweets');
-    data.addRows([
-      ['Distrito Federal', 20, 30],
-      ['São Paulo', 20, 20],
-      ['Pernambuco', 20, 14],
-      ['Manaus', 20, 23],
-      ['Santa Catarina', 1000, 1]
-    ]);
-
-    var options = {
-      region: 'BR', 
-      displayMode: 'markers', 
-      colorAxis: {colors: ['green', 'red']}
-    };
-
-    var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
-  };
-  </script>
+        <script type="text/javascript" src="googleChart.js"></script>
 
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title><?php
