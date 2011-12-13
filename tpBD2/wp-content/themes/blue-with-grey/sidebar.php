@@ -14,7 +14,7 @@
         </div>
         <div class="widget">
             <h3><?php _e('Nuvem de Hashtags','blue_with_grey')?></h3>
-            <div id="div_hastag"></div>
+            <div id="div_hashtags"></div>
                 <!--Load the AJAX API-->
         </div>        
 <div>

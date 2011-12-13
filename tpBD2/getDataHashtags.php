@@ -42,9 +42,9 @@
 		$tam = mysql_num_rows($qry);
 		$i = 0;
 		while($R=mysql_fetch_object($qry)) {
-                        $termo = $R->termo;
+                        $hashtag = $R->hashtag;
                         $count = $R->count;
-                        $string.='{"c":[{"v":"'.$termo.'"}, {"v":"'.$count.'"}]}';
+                        $string.='{"c":[{"v":"'.$hashtag.'"}, {"v":"'.$count.'"}]}';
                         if(++$i < $tam){$string.=',';}
                         }
                         $string.=']}';
@@ -53,20 +53,4 @@
     }else{
 	echo "";
 }
-
-
-/*
-
-	$main_arr = array();
-		while($row = mysql_fetch_assoc($qry))
-		{   
-			foreach($row as $key => $value)
-			{    $arr[$key] = $value; }
-
-			$main_arr[] = $arr;
-		}
-
-		$json = json_encode($main_arr);
-		echo $json;
-*/
 ?>
