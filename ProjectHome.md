@@ -1,0 +1,1 @@
+Um aplicativo capaz de filtrar feeds e mostrar informações úteis sobre as salas de cinema brasileiras.
